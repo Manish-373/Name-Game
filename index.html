@@ -1,0 +1,79 @@
+<html>
+<head>
+
+	<title> App 4 By Manish </title>
+
+	<style>
+		* { font-size: 50px; font-family: algerian;}
+	</style>
+
+	<script>
+	function show()
+	{
+		
+		event.preventDefault();
+		let name = document.getElementById("name");
+		
+		if (name.value == "")
+		{
+			alert("Blank Not Allowed");
+			name.focus();
+			ans.innerHTML= "";
+			return;
+		}
+		
+		else if (name.value.trim () == "")
+		{
+			alert("Spaces Not Allowed");
+			name.value = "";
+			name.focus();
+			ans.innerHTML = "";
+			return;
+		}
+		else if (! name.value.match(/^[A-Za-z ]+$/))
+		{
+			alert("Special char Not Allowed");
+			name.value = "";
+			name.focus();
+			ans.innerHTML = "";
+			return;
+
+
+
+		}
+
+		
+		
+		let ans = document.getElementById("ans");
+		let d = new Date();
+		let hr = d.getHours();
+		let msg = "";
+		if (hr < 12)			msg ="GOOD MORNING";
+		else if (hr < 16)			msg ="GOOD AFTERNOON";
+		else					msg ="GOOD EVENING";
+		ans.innerHTML = msg+ " "+ name.value;
+
+	}
+	</script>
+
+
+</head>
+
+
+<body>
+
+<center>
+
+<h1> Welcome App </h1>
+<form onsubmit = "show()">
+
+	<input type = "text" placeholder ="ENTER YOUR NAME" id = "name" />
+	<input type = "submit"style = "background-color: blue;color: white;"value = "Welcome"/>
+	</form>
+	<h1 id = "ans" > </h1>
+</center>
+
+
+</body>
+
+</html>
